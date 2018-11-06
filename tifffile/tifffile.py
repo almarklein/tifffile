@@ -8214,7 +8214,7 @@ def _replace_by(module_function, package=__package__, warn=None, prefix='_'):
         from importlib import import_module
     except ImportError as e:
         _warn(e, warn)
-        return identityfunc
+        return lambda f: f  # identityfunc is not defined yet
 
     def decorate(func, module_function=module_function, warn=warn):
         module, function = module_function.split('.')
